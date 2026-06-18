@@ -1,0 +1,15 @@
+{
+    "name": "vietfly-backend",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "php",
+    "workspaceFolder": "/var/www",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bmewburn.vscode-intelephense-client",
+                "xdebug.php-debug",
+                "eamodio.gitlens"
+            ]
+        }
+    }
+}
