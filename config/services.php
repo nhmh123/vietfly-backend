@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'mock_api' => [
+        'url' => env('MOCK_API_URL', null),
+        'username' => env('MOCK_API_USERNAME', null),
+        'password' => env('MOCK_API_PASSWORD', null),
+    ]
+
 ];
