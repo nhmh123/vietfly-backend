@@ -127,6 +127,13 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        'mock_api' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/mock_api.log'),
+            'level' => 'info',
+            'days' => 14,
+        ],
+
     ],
 
 ];
