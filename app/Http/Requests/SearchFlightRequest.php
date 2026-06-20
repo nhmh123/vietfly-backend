@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,9 +27,8 @@ class SearchFlightRequest extends FormRequest
             'trip_type' => ['required', 'string', 'in:one-way,round-trip'],
             'origin' => ['required', 'string', 'size:3'],
             'destination' => ['required', 'string', 'size:3', 'different:origin'],
-            'departure_date' => ['required', 'date', 'after_or_equal:today'],
-            'return_date' => ['nullable', 'date', 'after_or_equal:departure_date'],
-
+            'departure_date' => ['required', 'date_format:Y-m-d', 'after_or_equal:today', 'before_or_equal:' . Carbon::today()->addYear()->format('Y-m-d')],
+            'return_date' => ['nullable', 'date_format:Y-m-d', 'after_or_equal:departure_date', 'before_or_equal:' . Carbon::today()->addYear()->format('Y-m-d')],
             'adults' => ['required', 'integer', 'min:1', 'max:9'],
             'children' => ['nullable', 'integer', 'min:0'],
             'infants' => ['nullable', 'integer', 'min:0'],
@@ -40,25 +40,23 @@ class SearchFlightRequest extends FormRequest
         return [
             'trip_type.required' => 'Vui lòng chọn loại hình chuyến đi.',
             'trip_type.in' => 'Loại hình chuyến đi không hợp lệ.',
-
             'origin.required' => 'Vui lòng nhập sân bay xuất phát.',
             'origin.size' => 'Mã sân bay phải gồm đúng 3 ký tự.',
-
             'destination.required' => 'Vui lòng nhập sân bay đến.',
             'destination.size' => 'Mã sân bay phải gồm đúng 3 ký tự.',
             'destination.different' => 'Sân bay đến không được trùng với sân bay đi.',
-
             'departure_date.required' => 'Vui lòng chọn ngày khởi hành.',
+            'departure_date.date_format' => 'Ngày khởi hành phải theo định dạng YYYY-MM-DD.',
             'departure_date.after_or_equal' => 'Ngày khởi hành không được là ngày trong quá khứ.',
-
+            'return_date.date_format' => 'Ngày về phải theo định dạng YYYY-MM-DD.',
             'return_date.after_or_equal' => 'Ngày về phải sau hoặc trùng với ngày khởi hành.',
-
             'adults.required' => 'Vui lòng nhập số lượng người lớn.',
             'adults.min' => 'Số lượng người lớn tối thiểu là 1.',
             'adults.max' => 'Tối đa 9 hành khách.',
-
             'children.min' => 'Số lượng trẻ em không thể là số âm.',
             'infants.min' => 'Số lượng em bé không thể là số âm.',
+            'departure_date.before_or_equal' => 'Ngày khởi hành không được vượt quá 1 năm kể từ hôm nay.',
+            'return_date.before_or_equal' => 'Ngày về không được vượt quá 1 năm kể từ hôm nay.',
         ];
     }
 
