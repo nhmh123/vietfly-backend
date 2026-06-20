@@ -3,16 +3,20 @@
 namespace App\Http\Controllers\Flight;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\SearchFlightRequest;
+use App\Services\SearchFlightService;
 
 class FlightSearchController extends Controller
 {
-    public function __construct() {}
+    private $searchFlightService;
+    public function __construct(SearchFlightService $searchFlightService) {
+        $this->searchFlightService = $searchFlightService;
+    }
 
-    public function __invoke(Request $request) {
+    public function __invoke(SearchFlightRequest $request, SearchFlightService $service) {
         return response()->json([
             'message' => 'Flight search endpoint hit',
-            'data' => $request->all()
+            'data' => $request->validated()
         ]);
     }
 }
