@@ -18,11 +18,11 @@ class SearchFlightService
         $this->flightProvider = $flightProvider;
     }
 
-    public function search(array $data)
+    public function search(array $data, ?string $scenario = null)
     {
         $requestData = SearchFlightRequestMapper::toDatacom($data);
         // return $requestData;
-        $responseData = $this->flightProvider->search($requestData);
+        $responseData = $this->flightProvider->search($requestData, $scenario);
         // return $responseData;
         return SearchFlightResponseMapper::toApplication($responseData);
     }

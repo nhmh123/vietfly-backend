@@ -16,13 +16,9 @@ class FlightSearchController extends Controller
 
     public function __invoke(SearchFlightRequest $request)
     {
-        return response()->json(
-            $this->searchFlightService->search($request->validated())
+        return $this->searchFlightService->search(
+            $request->validated(),
+            $request->query('scenario')
         );
-
-        return response()->json([
-            'message' => 'Flight search endpoint hit',
-            'data' => $request->validated()
-        ]);
     }
 }
