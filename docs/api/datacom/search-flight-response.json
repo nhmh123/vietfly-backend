@@ -1,0 +1,144 @@
+{
+    "StatusCode": "string",
+    "Success": true,
+    "Message": "string",
+    "Language": "string",
+    "RequestID": 0,
+    "Session": "string",
+    "ListGroup": [
+        {
+            "Leg": 0,
+            "TripType": "string",
+            "Journey": "string",
+            "StartPoint": "string",
+            "EndPoint": "string",
+            "DepartDate": "string",
+            "ListAirOption": [
+                {
+                    "OptionId": 0,
+                    "Leg": 0,
+                    "Itinerary": 0,
+                    "Airline": "string",
+                    "System": "string",
+                    "Source": "string",
+                    "Remark": "string",
+                    "ListFlightOption": [
+                        {
+                            "OptionId": 0,
+                            "ListFlight": [
+                                {
+                                    "Leg": 0,
+                                    "FlightId": "string",
+                                    "Airline": "string",
+                                    "Operator": "string",
+                                    "StartPoint": "string",
+                                    "EndPoint": "string",
+                                    "StartDate": "2024-11-27T06:59:27.418Z",
+                                    "EndDate": "2024-11-27T06:59:27.418Z",
+                                    "DepartDate": "string",
+                                    "ArriveDate": "string",
+                                    "FlightNumber": "string",
+                                    "StopNum": 0,
+                                    "Duration": 0,
+                                    "ListSegment": [
+                                        {
+                                            "Leg": 0,
+                                            "SegmentId": "string",
+                                            "Airline": "string",
+                                            "Operator": "string",
+                                            "StartPoint": "string",
+                                            "EndPoint": "string",
+                                            "StartDate": "2024-11-27T06:59:27.418Z",
+                                            "EndDate": "2024-11-27T06:59:27.418Z",
+                                            "DepartDate": "string",
+                                            "ArriveDate": "string",
+                                            "StartTerminal": "string",
+                                            "EndTerminal": "string",
+                                            "FlightNumber": "string",
+                                            "Equipment": "string",
+                                            "FareClass": "string",
+                                            "FareBasis": "string",
+                                            "Duration": 0,
+                                            "HasStop": true,
+                                            "StopPoint": "string",
+                                            "StopTime": 0,
+                                            "TechnicalStop": "string",
+                                            "MarriageGrp": "string",
+                                            "FlightsMiles": 0,
+                                            "Status": "string"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "ListFareOption": [
+                        {
+                            "OptionId": 0,
+                            "FareClass": "string",
+                            "FareBasis": "string",
+                            "FareFamily": "string",
+                            "CabinCode": "string",
+                            "CabinName": "string",
+                            "Refundable": true,
+                            "Availability": 0,
+                            "Unavailable": true,
+                            "ExpiryDate": "string",
+                            "BaseFare": 0,
+                            "BaseFareOrigin": 0,
+                            "PriceAdt": 0,
+                            "PriceAdtOrigin": 0,
+                            "NetFare": 0,
+                            "NetFareOrigin": 0,
+                            "TotalFare": 0,
+                            "TotalFareOrigin": 0,
+                            "Currency": "string",
+                            "Airline": "string",
+                            "System": "string",
+                            "Source": "string",
+                            "Tourcode": "string",
+                            "ListFarePax": [
+                                {
+                                    "PaxType": "string",
+                                    "PaxNumb": 0,
+                                    "BaseFare": 0,
+                                    "BaseFareOrigin": 0,
+                                    "NetFare": 0,
+                                    "NetFareOrigin": 0,
+                                    "TotalFare": 0,
+                                    "TotalFareOrigin": 0,
+                                    "ListFareItem": [
+                                        {
+                                            "Code": "string",
+                                            "Amount": 0,
+                                            "Name": "string"
+                                        }
+                                    ],
+                                    "ListTaxDetail": [
+                                        {
+                                            "Code": "string",
+                                            "Amount": 0,
+                                            "Name": "string"
+                                        }
+                                    ],
+                                    "ListFareInfo": [
+                                        {
+                                            "SegmentId": "string",
+                                            "StartPoint": "string",
+                                            "EndPoint": "string",
+                                            "FareClass": "string",
+                                            "FareBasis": "string",
+                                            "HandBaggage": "string",
+                                            "FreeBaggage": "string",
+                                            "Availability": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

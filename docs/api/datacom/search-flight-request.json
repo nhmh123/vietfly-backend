@@ -1,0 +1,30 @@
+{
+    "RequestInfo": {
+        "PrivateKey": "string",
+        "ApiAccount": "string",
+        "ApiPassword": "string",
+        "Currency": "string",
+        "Language": "string",
+        "IpAddress": "string"
+    },
+    "System": "string",
+    "Adt": 0,
+    "Chd": 0,
+    "Inf": 0,
+    "Tourcode": "string",
+    "ListRoute": [
+        {
+            "Leg": 0,
+            "StartPoint": "string",
+            "EndPoint": "string",
+            "DepartDate": "string"
+        }
+    ],
+    "Option": {
+        "DirectOnly": true,
+        "NearByAirport": true,
+        "PreferCabin": "string",
+        "NdcOnly": false,
+        "CombineMode": "string"
+    }
+}

@@ -2,7 +2,6 @@
 
 namespace App\Support\Http;
 
-use App\Exceptions\MockApiException;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -12,7 +11,7 @@ class HttpClient
 {
     public static function mockapi()
     {
-        $requestId = Str::uuid();
+        $requestId = Str::uuid()->toString();
         Log::withContext(['request_id' => $requestId]);
 
         return Http::baseUrl(config('services.mock_api.url'))
@@ -38,8 +37,6 @@ class HttpClient
             })
             ->throw(function ($response, $exception) use ($requestId) {
                 Log::channel('mock_api')->error("[API Error] [$requestId]", [
-                    'url' => $response->effectiveUri(),
-                    'method' => $response->method(),
                     'status' => $response->status(),
                     'body' => $response->body(),
                     'exception' => $exception->getMessage(),
