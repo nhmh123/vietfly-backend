@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Flight;
 
+use App\Exceptions\FlightProviderException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchFlightRequest;
 use App\Services\SearchFlightService;
@@ -16,9 +17,23 @@ class FlightSearchController extends Controller
 
     public function __invoke(SearchFlightRequest $request)
     {
-        return $this->searchFlightService->search(
-            $request->validated(),
-            $request->query('scenario')
-        );
+        try {
+            $data = $this->searchFlightService->search(
+                $request->validated(),
+                $request->query('scenario')
+            );
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Success',
+                'data' => $data,
+            ]);
+        } catch (FlightProviderException $e) {
+            return response()->json([
+                'success' => false,
+                'code' => $e->codeName,
+                'message' => $e->getMessage(),
+            ], $e->httpStatus);
+        }
     }
 }

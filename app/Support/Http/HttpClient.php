@@ -20,7 +20,7 @@ class HttpClient
                 config('services.mock_api.password')
             )
             ->asJson()
-            ->timeout(30)
+            ->timeout(5)
             ->connectTimeout(5)
             ->retry(3, 100, function ($exception) {
                 return $exception instanceof ConnectionException;
@@ -33,13 +33,6 @@ class HttpClient
                 Log::channel('mock_api')->info("[API Request] [$requestId]", [
                     'url' => $request->url(),
                     'method' => $request->method(),
-                ]);
-            })
-            ->throw(function ($response, $exception) use ($requestId) {
-                Log::channel('mock_api')->error("[API Error] [$requestId]", [
-                    'status' => $response->status(),
-                    'body' => $response->body(),
-                    'exception' => $exception->getMessage(),
                 ]);
             })
         ;

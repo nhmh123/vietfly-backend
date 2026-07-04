@@ -21,9 +21,7 @@ class SearchFlightService
     public function search(array $data, ?string $scenario = null)
     {
         $requestData = SearchFlightRequestMapper::toDatacom($data);
-        // return $requestData;
         $responseData = $this->flightProvider->search($requestData, $scenario);
-        // return $responseData;
         return SearchFlightResponseMapper::toApplication($responseData);
     }
 }

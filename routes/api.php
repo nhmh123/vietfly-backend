@@ -9,4 +9,4 @@ Route::get('/health', function () {
     ]);
 });
 
-Route::post('/flight/search', FlightSearchController::class)->name('flight.search');
+Route::post('/flights/search', FlightSearchController::class)->name('flight.search');
