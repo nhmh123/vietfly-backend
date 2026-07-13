@@ -9,4 +9,6 @@ Route::get('/health', function () {
     ]);
 });
 
-Route::post('/flights/search', FlightSearchController::class)->name('flight.search');
+Route::prefix('/flights')->group(function () {
+    Route::post('search', [FlightSearchController::class, 'search'])->name('flight.search');
+});

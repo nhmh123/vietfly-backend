@@ -31,22 +31,13 @@ class SearchFlightRequestMapper
         }
 
         return [
-            'RequestInfo' => [
-                // thông tin chung nếu Datacom yêu cầu
-            ],
-
+            'RequestInfo' => [],
             'System' => 'VN',
-
             'Adt' => $data['adults'],
-
             'Chd' => $data['children'] ?? 0,
-
             'Inf' => $data['infants'] ?? 0,
-
             'TourCode' => '',
-
             'ListRoute' => $routes,
-
             'Option' => [
                 'DirectOnly' => false,
                 'NearByAirport' => false,

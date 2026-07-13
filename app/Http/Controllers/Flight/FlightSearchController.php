@@ -15,7 +15,7 @@ class FlightSearchController extends Controller
         $this->searchFlightService = $searchFlightService;
     }
 
-    public function __invoke(SearchFlightRequest $request)
+    public function search(SearchFlightRequest $request)
     {
         try {
             $data = $this->searchFlightService->search(
